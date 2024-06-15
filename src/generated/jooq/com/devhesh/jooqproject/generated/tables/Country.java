@@ -30,6 +30,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
+import org.jooq.impl.AutoConverter;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
@@ -60,7 +61,7 @@ public class Country extends TableImpl<CountryRecord> {
     /**
      * The column <code>sakila.country.country_id</code>.
      */
-    public final TableField<CountryRecord, UInteger> COUNTRY_ID = createField(DSL.name("country_id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<CountryRecord, Long> COUNTRY_ID = createField(DSL.name("country_id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.country.country</code>.
@@ -140,8 +141,8 @@ public class Country extends TableImpl<CountryRecord> {
     }
 
     @Override
-    public Identity<CountryRecord, UInteger> getIdentity() {
-        return (Identity<CountryRecord, UInteger>) super.getIdentity();
+    public Identity<CountryRecord, Long> getIdentity() {
+        return (Identity<CountryRecord, Long>) super.getIdentity();
     }
 
     @Override

@@ -10,7 +10,6 @@ import com.devhesh.jooqproject.generated.tables.FilmList;
 import java.math.BigDecimal;
 
 import org.jooq.impl.TableRecordImpl;
-import org.jooq.types.UInteger;
 import org.jooq.types.UShort;
 
 
@@ -25,7 +24,7 @@ public class FilmListRecord extends TableRecordImpl<FilmListRecord> {
     /**
      * Setter for <code>sakila.film_list.FID</code>.
      */
-    public FilmListRecord setFid(UInteger value) {
+    public FilmListRecord setFid(Long value) {
         set(0, value);
         return this;
     }
@@ -33,8 +32,8 @@ public class FilmListRecord extends TableRecordImpl<FilmListRecord> {
     /**
      * Getter for <code>sakila.film_list.FID</code>.
      */
-    public UInteger getFid() {
-        return (UInteger) get(0);
+    public Long getFid() {
+        return (Long) get(0);
     }
 
     /**
@@ -156,7 +155,7 @@ public class FilmListRecord extends TableRecordImpl<FilmListRecord> {
     /**
      * Create a detached, initialised FilmListRecord
      */
-    public FilmListRecord(UInteger fid, String title, String description, String category, BigDecimal price, UShort length, FilmListRating rating, String actors) {
+    public FilmListRecord(Long fid, String title, String description, String category, BigDecimal price, UShort length, FilmListRating rating, String actors) {
         super(FilmList.FILM_LIST);
 
         setFid(fid);

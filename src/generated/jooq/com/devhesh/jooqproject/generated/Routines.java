@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 
 import org.jooq.Configuration;
 import org.jooq.Field;
+import org.jooq.impl.AutoConverter;
 import org.jooq.types.UByte;
 
 
@@ -182,7 +183,7 @@ public class Routines {
      */
     public static Integer rewardsReport(
           Configuration configuration
-        , UByte minMonthlyPurchases
+        , Integer minMonthlyPurchases
         , BigDecimal minDollarAmountPurchased
     ) {
         RewardsReport p = new RewardsReport();

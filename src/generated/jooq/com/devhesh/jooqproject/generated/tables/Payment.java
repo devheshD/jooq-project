@@ -37,6 +37,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
+import org.jooq.impl.AutoConverter;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
@@ -67,17 +68,17 @@ public class Payment extends TableImpl<PaymentRecord> {
     /**
      * The column <code>sakila.payment.payment_id</code>.
      */
-    public final TableField<PaymentRecord, UInteger> PAYMENT_ID = createField(DSL.name("payment_id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<PaymentRecord, Long> PAYMENT_ID = createField(DSL.name("payment_id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.payment.customer_id</code>.
      */
-    public final TableField<PaymentRecord, UInteger> CUSTOMER_ID = createField(DSL.name("customer_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<PaymentRecord, Long> CUSTOMER_ID = createField(DSL.name("customer_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.payment.staff_id</code>.
      */
-    public final TableField<PaymentRecord, UInteger> STAFF_ID = createField(DSL.name("staff_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<PaymentRecord, Long> STAFF_ID = createField(DSL.name("staff_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.payment.rental_id</code>.
@@ -172,8 +173,8 @@ public class Payment extends TableImpl<PaymentRecord> {
     }
 
     @Override
-    public Identity<PaymentRecord, UInteger> getIdentity() {
-        return (Identity<PaymentRecord, UInteger>) super.getIdentity();
+    public Identity<PaymentRecord, Long> getIdentity() {
+        return (Identity<PaymentRecord, Long>) super.getIdentity();
     }
 
     @Override

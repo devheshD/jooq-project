@@ -9,7 +9,6 @@ import com.devhesh.jooqproject.generated.enums.NicerButSlowerFilmListRating;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import org.jooq.types.UInteger;
 import org.jooq.types.UShort;
 
 
@@ -21,7 +20,7 @@ public class NicerButSlowerFilmList implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private UInteger fid;
+    private Long fid;
     private String title;
     private String description;
     private String category;
@@ -44,7 +43,7 @@ public class NicerButSlowerFilmList implements Serializable {
     }
 
     public NicerButSlowerFilmList(
-        UInteger fid,
+        Long fid,
         String title,
         String description,
         String category,
@@ -66,14 +65,14 @@ public class NicerButSlowerFilmList implements Serializable {
     /**
      * Getter for <code>sakila.nicer_but_slower_film_list.FID</code>.
      */
-    public UInteger getFid() {
+    public Long getFid() {
         return this.fid;
     }
 
     /**
      * Setter for <code>sakila.nicer_but_slower_film_list.FID</code>.
      */
-    public NicerButSlowerFilmList setFid(UInteger fid) {
+    public NicerButSlowerFilmList setFid(Long fid) {
         this.fid = fid;
         return this;
     }

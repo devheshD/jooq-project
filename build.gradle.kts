@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jooq.meta.jaxb.ForcedType
+import org.jooq.meta.jaxb.Logging
 
 val jooqVersion: String by extra { "3.19.9" }
 
@@ -26,6 +27,8 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jooq")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    // DefaultGeneratorStrategy를 가져올수 있음
+//    implementation("org.jooq:jooq-codegen:$jooqVersion")
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -33,8 +36,8 @@ dependencies {
     // implementation("org.jooq:jooq:$jooqVersion")
 
     jooqGenerator("com.mysql:mysql-connector-j")
-//    jooqGenerator("org.jooq:jooq:$jooqVersion")
-//    jooqGenerator("org.jooq:jooq-meta:$jooqVersion")
+    jooqGenerator("org.jooq:jooq:$jooqVersion")
+    jooqGenerator("org.jooq:jooq-meta:$jooqVersion")
 }
 
 tasks.withType<KotlinCompile> {
@@ -58,7 +61,8 @@ jooq {
             generateSchemaSourceOnCompilation.set(true)  // default (can be omitted)
 
             jooqConfiguration.apply {
-//                logging = Logging.WARN
+                logging = Logging.WARN
+
                 jdbc.apply {
                     driver = "com.mysql.cj.jdbc.Driver"
                     url = "jdbc:mysql://localhost:3306/sakila?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
@@ -71,6 +75,20 @@ jooq {
 
                     database.apply {
                         inputSchema = "sakila"
+                        isUnsignedTypes = true
+                        forcedTypes.addAll(
+                            arrayOf(
+                                ForcedType()
+                                    .withUserType("java.lang.Long")
+                                    .withIncludeTypes("int unsigned"),
+                                ForcedType()
+                                    .withUserType("java.lang.Integer")
+                                    .withIncludeTypes("tinyint unsigned"),
+                                ForcedType()
+                                    .withUserType("java.lang.Integer")
+                                    .withIncludeTypes("smallest unsigned"),
+                            )
+                        )
                     }
 
                     generate.apply {
@@ -80,10 +98,7 @@ jooq {
                         isJavaTimeTypes = true
                         isDeprecated = false
 
-//                        isJavaTimeTypes = true
-//                        isGeneratedAnnotation = true
 //                        isPojos = true
-//                        isDaos = true
                     }
                     // target : 어느 곳에 DSL을 생성시킬것인가를 구성
                     target.apply {

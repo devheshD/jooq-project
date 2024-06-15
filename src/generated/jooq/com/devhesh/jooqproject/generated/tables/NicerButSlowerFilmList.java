@@ -23,6 +23,7 @@ import org.jooq.Stringly;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
+import org.jooq.impl.AutoConverter;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
@@ -54,7 +55,7 @@ public class NicerButSlowerFilmList extends TableImpl<NicerButSlowerFilmListReco
     /**
      * The column <code>sakila.nicer_but_slower_film_list.FID</code>.
      */
-    public final TableField<NicerButSlowerFilmListRecord, UInteger> FID = createField(DSL.name("FID"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.inline("0", SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<NicerButSlowerFilmListRecord, Long> FID = createField(DSL.name("FID"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.inline("0", SQLDataType.INTEGERUNSIGNED)), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.nicer_but_slower_film_list.title</code>.

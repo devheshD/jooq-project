@@ -37,6 +37,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
+import org.jooq.impl.AutoConverter;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
@@ -77,12 +78,12 @@ public class Rental extends TableImpl<RentalRecord> {
     /**
      * The column <code>sakila.rental.inventory_id</code>.
      */
-    public final TableField<RentalRecord, UInteger> INVENTORY_ID = createField(DSL.name("inventory_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<RentalRecord, Long> INVENTORY_ID = createField(DSL.name("inventory_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.rental.customer_id</code>.
      */
-    public final TableField<RentalRecord, UInteger> CUSTOMER_ID = createField(DSL.name("customer_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<RentalRecord, Long> CUSTOMER_ID = createField(DSL.name("customer_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.rental.return_date</code>.
@@ -92,7 +93,7 @@ public class Rental extends TableImpl<RentalRecord> {
     /**
      * The column <code>sakila.rental.staff_id</code>.
      */
-    public final TableField<RentalRecord, UInteger> STAFF_ID = createField(DSL.name("staff_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<RentalRecord, Long> STAFF_ID = createField(DSL.name("staff_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.rental.last_update</code>.

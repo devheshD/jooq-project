@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.jooq.Configuration;
+import org.jooq.impl.AutoConverter;
 import org.jooq.impl.DAOImpl;
 import org.jooq.types.UInteger;
 
@@ -89,14 +90,14 @@ public class RentalDao extends DAOImpl<RentalRecord, com.devhesh.jooqproject.gen
      * Fetch records that have <code>inventory_id BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchRangeOfInventoryId(UInteger lowerInclusive, UInteger upperInclusive) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchRangeOfInventoryId(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(Rental.RENTAL.INVENTORY_ID, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>inventory_id IN (values)</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchByInventoryId(UInteger... values) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchByInventoryId(Long... values) {
         return fetch(Rental.RENTAL.INVENTORY_ID, values);
     }
 
@@ -104,14 +105,14 @@ public class RentalDao extends DAOImpl<RentalRecord, com.devhesh.jooqproject.gen
      * Fetch records that have <code>customer_id BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchRangeOfCustomerId(UInteger lowerInclusive, UInteger upperInclusive) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchRangeOfCustomerId(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(Rental.RENTAL.CUSTOMER_ID, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>customer_id IN (values)</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchByCustomerId(UInteger... values) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchByCustomerId(Long... values) {
         return fetch(Rental.RENTAL.CUSTOMER_ID, values);
     }
 
@@ -134,14 +135,14 @@ public class RentalDao extends DAOImpl<RentalRecord, com.devhesh.jooqproject.gen
      * Fetch records that have <code>staff_id BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchRangeOfStaffId(UInteger lowerInclusive, UInteger upperInclusive) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchRangeOfStaffId(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(Rental.RENTAL.STAFF_ID, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>staff_id IN (values)</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchByStaffId(UInteger... values) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Rental> fetchByStaffId(Long... values) {
         return fetch(Rental.RENTAL.STAFF_ID, values);
     }
 

@@ -34,6 +34,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
+import org.jooq.impl.AutoConverter;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
@@ -64,12 +65,12 @@ public class FilmActor extends TableImpl<FilmActorRecord> {
     /**
      * The column <code>sakila.film_actor.actor_id</code>.
      */
-    public final TableField<FilmActorRecord, UInteger> ACTOR_ID = createField(DSL.name("actor_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<FilmActorRecord, Long> ACTOR_ID = createField(DSL.name("actor_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.film_actor.film_id</code>.
      */
-    public final TableField<FilmActorRecord, UInteger> FILM_ID = createField(DSL.name("film_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<FilmActorRecord, Long> FILM_ID = createField(DSL.name("film_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "", new AutoConverter<UInteger, Long>(UInteger.class, Long.class));
 
     /**
      * The column <code>sakila.film_actor.last_update</code>.
