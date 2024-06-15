@@ -6,12 +6,12 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 
 data class FilmData(
-    val filmId: Int,
+    val filmId: Long,
     val title: String,
     val description: String,
     val releaseYear: LocalDateTime,
-    val languageId: Int,
-    val originalLanguageId: Int?,
+    val languageId: Long,
+    val originalLanguageId: Long?,
     val rentalDuration: Int,
     val rentalRate: BigDecimal,
     val length: Int,

@@ -80,7 +80,7 @@ public class FilmList extends TableImpl<FilmListRecord> {
     /**
      * The column <code>sakila.film_list.length</code>.
      */
-    public final TableField<FilmListRecord, UShort> LENGTH = createField(DSL.name("length"), SQLDataType.SMALLINTUNSIGNED, this, "");
+    public final TableField<FilmListRecord, Integer> LENGTH = createField(DSL.name("length"), SQLDataType.SMALLINTUNSIGNED, this, "", new AutoConverter<UShort, Integer>(UShort.class, Integer.class));
 
     /**
      * The column <code>sakila.film_list.rating</code>.

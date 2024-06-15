@@ -13,7 +13,6 @@ import java.time.Year;
 
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
-import org.jooq.types.UShort;
 
 
 /**
@@ -147,7 +146,7 @@ public class FilmRecord extends UpdatableRecordImpl<FilmRecord> {
     /**
      * Setter for <code>sakila.film.length</code>.
      */
-    public FilmRecord setLength(UShort value) {
+    public FilmRecord setLength(Integer value) {
         set(8, value);
         return this;
     }
@@ -155,8 +154,8 @@ public class FilmRecord extends UpdatableRecordImpl<FilmRecord> {
     /**
      * Getter for <code>sakila.film.length</code>.
      */
-    public UShort getLength() {
-        return (UShort) get(8);
+    public Integer getLength() {
+        return (Integer) get(8);
     }
 
     /**
@@ -242,7 +241,7 @@ public class FilmRecord extends UpdatableRecordImpl<FilmRecord> {
     /**
      * Create a detached, initialised FilmRecord
      */
-    public FilmRecord(Long filmId, String title, String description, Year releaseYear, Long languageId, Long originalLanguageId, Integer rentalDuration, BigDecimal rentalRate, UShort length, BigDecimal replacementCost, FilmRating rating, String specialFeatures, LocalDateTime lastUpdate) {
+    public FilmRecord(Long filmId, String title, String description, Year releaseYear, Long languageId, Long originalLanguageId, Integer rentalDuration, BigDecimal rentalRate, Integer length, BigDecimal replacementCost, FilmRating rating, String specialFeatures, LocalDateTime lastUpdate) {
         super(Film.FILM);
 
         setFilmId(filmId);

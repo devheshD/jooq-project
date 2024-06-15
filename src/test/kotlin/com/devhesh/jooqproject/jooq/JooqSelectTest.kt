@@ -1,16 +1,15 @@
 package com.devhesh.jooqproject.jooq
 
-import com.devhesh.jooqproject.configuration.JooqCustomConfiguration
 import com.devhesh.jooqproject.repository.film.FilmRepository
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.Import
+import org.springframework.boot.test.autoconfigure.jooq.JooqTest
+import org.springframework.context.annotation.ComponentScan
 
-@SpringBootTest
-@Import(FilmRepository::class, JooqCustomConfiguration::class)
-class JooqSelectTest {
+@JooqTest
+@ComponentScan(basePackages = ["com.devhesh.jooqproject"])
+internal class JooqSelectTest {
 
     @Autowired
     private lateinit var filmRepository: FilmRepository

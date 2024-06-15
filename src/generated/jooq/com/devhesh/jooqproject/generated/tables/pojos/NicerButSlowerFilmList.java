@@ -9,8 +9,6 @@ import com.devhesh.jooqproject.generated.enums.NicerButSlowerFilmListRating;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import org.jooq.types.UShort;
-
 
 /**
  * VIEW
@@ -25,7 +23,7 @@ public class NicerButSlowerFilmList implements Serializable {
     private String description;
     private String category;
     private BigDecimal price;
-    private UShort length;
+    private Integer length;
     private NicerButSlowerFilmListRating rating;
     private String actors;
 
@@ -48,7 +46,7 @@ public class NicerButSlowerFilmList implements Serializable {
         String description,
         String category,
         BigDecimal price,
-        UShort length,
+        Integer length,
         NicerButSlowerFilmListRating rating,
         String actors
     ) {
@@ -140,14 +138,14 @@ public class NicerButSlowerFilmList implements Serializable {
     /**
      * Getter for <code>sakila.nicer_but_slower_film_list.length</code>.
      */
-    public UShort getLength() {
+    public Integer getLength() {
         return this.length;
     }
 
     /**
      * Setter for <code>sakila.nicer_but_slower_film_list.length</code>.
      */
-    public NicerButSlowerFilmList setLength(UShort length) {
+    public NicerButSlowerFilmList setLength(Integer length) {
         this.length = length;
         return this;
     }

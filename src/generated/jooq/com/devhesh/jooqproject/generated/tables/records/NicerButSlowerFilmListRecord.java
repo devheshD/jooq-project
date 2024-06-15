@@ -10,7 +10,6 @@ import com.devhesh.jooqproject.generated.tables.NicerButSlowerFilmList;
 import java.math.BigDecimal;
 
 import org.jooq.impl.TableRecordImpl;
-import org.jooq.types.UShort;
 
 
 /**
@@ -99,7 +98,7 @@ public class NicerButSlowerFilmListRecord extends TableRecordImpl<NicerButSlower
     /**
      * Setter for <code>sakila.nicer_but_slower_film_list.length</code>.
      */
-    public NicerButSlowerFilmListRecord setLength(UShort value) {
+    public NicerButSlowerFilmListRecord setLength(Integer value) {
         set(5, value);
         return this;
     }
@@ -107,8 +106,8 @@ public class NicerButSlowerFilmListRecord extends TableRecordImpl<NicerButSlower
     /**
      * Getter for <code>sakila.nicer_but_slower_film_list.length</code>.
      */
-    public UShort getLength() {
-        return (UShort) get(5);
+    public Integer getLength() {
+        return (Integer) get(5);
     }
 
     /**
@@ -155,7 +154,7 @@ public class NicerButSlowerFilmListRecord extends TableRecordImpl<NicerButSlower
     /**
      * Create a detached, initialised NicerButSlowerFilmListRecord
      */
-    public NicerButSlowerFilmListRecord(Long fid, String title, String description, String category, BigDecimal price, UShort length, NicerButSlowerFilmListRating rating, String actors) {
+    public NicerButSlowerFilmListRecord(Long fid, String title, String description, String category, BigDecimal price, Integer length, NicerButSlowerFilmListRating rating, String actors) {
         super(NicerButSlowerFilmList.NICER_BUT_SLOWER_FILM_LIST);
 
         setFid(fid);

@@ -185,14 +185,14 @@ public class FilmDao extends DAOImpl<FilmRecord, com.devhesh.jooqproject.generat
      * Fetch records that have <code>length BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Film> fetchRangeOfLength(UShort lowerInclusive, UShort upperInclusive) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Film> fetchRangeOfLength(Integer lowerInclusive, Integer upperInclusive) {
         return fetchRange(Film.FILM.LENGTH, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>length IN (values)</code>
      */
-    public List<com.devhesh.jooqproject.generated.tables.pojos.Film> fetchByLength(UShort... values) {
+    public List<com.devhesh.jooqproject.generated.tables.pojos.Film> fetchByLength(Integer... values) {
         return fetch(Film.FILM.LENGTH, values);
     }
 

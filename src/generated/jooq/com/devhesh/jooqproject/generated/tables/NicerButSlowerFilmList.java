@@ -80,7 +80,7 @@ public class NicerButSlowerFilmList extends TableImpl<NicerButSlowerFilmListReco
     /**
      * The column <code>sakila.nicer_but_slower_film_list.length</code>.
      */
-    public final TableField<NicerButSlowerFilmListRecord, UShort> LENGTH = createField(DSL.name("length"), SQLDataType.SMALLINTUNSIGNED, this, "");
+    public final TableField<NicerButSlowerFilmListRecord, Integer> LENGTH = createField(DSL.name("length"), SQLDataType.SMALLINTUNSIGNED, this, "", new AutoConverter<UShort, Integer>(UShort.class, Integer.class));
 
     /**
      * The column <code>sakila.nicer_but_slower_film_list.rating</code>.

@@ -115,7 +115,7 @@ public class Film extends TableImpl<FilmRecord> {
     /**
      * The column <code>sakila.film.length</code>.
      */
-    public final TableField<FilmRecord, UShort> LENGTH = createField(DSL.name("length"), SQLDataType.SMALLINTUNSIGNED, this, "");
+    public final TableField<FilmRecord, Integer> LENGTH = createField(DSL.name("length"), SQLDataType.SMALLINTUNSIGNED, this, "", new AutoConverter<UShort, Integer>(UShort.class, Integer.class));
 
     /**
      * The column <code>sakila.film.replacement_cost</code>.

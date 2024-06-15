@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.serialization.js.ast.JsAstProtoBuf.For
 import org.jooq.meta.jaxb.ForcedType
 import org.jooq.meta.jaxb.Logging
 
@@ -78,15 +79,18 @@ jooq {
                         isUnsignedTypes = true
                         forcedTypes.addAll(
                             arrayOf(
-                                ForcedType()
-                                    .withUserType("java.lang.Long")
-                                    .withIncludeTypes("int unsigned"),
-                                ForcedType()
-                                    .withUserType("java.lang.Integer")
-                                    .withIncludeTypes("tinyint unsigned"),
-                                ForcedType()
-                                    .withUserType("java.lang.Integer")
-                                    .withIncludeTypes("smallest unsigned"),
+                                ForcedType().apply {
+                                    userType = "java.lang.Long"
+                                    includeTypes = "int unsigned"
+                                },
+                                ForcedType().apply {
+                                    userType = "java.lang.Integer"
+                                    includeTypes = "tinyint unsigned"
+                                },
+                                ForcedType().apply {
+                                    userType = "java.lang.Integer"
+                                    includeTypes = "smallint unsigned"
+                                }
                             )
                         )
                     }
